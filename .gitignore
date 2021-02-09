@@ -1,0 +1,68 @@
+# general
+*~
+*.log
+*.gz
+tmp
+dump
+.DS_Store
+.history
+dump.rdb
+bestsign-sdk-logs
+MIYOU_LOG_DIR_IS_UNDEFINED
+
+# Intellij
+**/.idea/
+*.iml
+*.csv
+*.xml
+*.html
+
+# Eclipse
+.settings
+.cache-main
+.cache-tests
+.cache
+.project
+.classpath
+.scala_dependencies
+bin
+output
+ 
+# SBT
+dist
+project/boot
+project/target
+project/plugins/target
+target
+.target
+flyway-jooq-sbt/project/project
+flyway-jooq-sbt/project/target
+flyway-jooq-sbt/target
+ 
+# Play
+logs
+RUNNING_PID
+
+# Dev
+conf/dev.conf
+
+# Jooq Generated classes
+cash-loan-core/src/main/java/com/yqg/core/model/loan/generated
+cash-loan-core/src/main/java/com/yqg/core/model/loanstats/generated
+cash-loan-core/src/main/java/com/yqg/core/model/risk/generated
+yqg-core/src/main/java/com/yqg/core/model/loan/generated
+yqg-core/src/main/java/com/yqg/core/model/generated
+yqg-core/src/main/java/com/yqg/core/model/calc/generated
+yqg-core/src/main/java/com/yqg/core/model/match/generated
+yqg-core/src/main/java/com/yqg/core/model/raas/generated
+yqg-stat-core/src/main/java/com/yqg/stat/core/model/generated
+ec/ec-core/src/main/java/com/yqg/core/model/generated/
+
+# Javascript package
+bower_components/*
+
+#playground
+yqg-core/src/test/java/com/yqg/core/playground/*
+cash-loan-core/src/test/java/com/yqg/core/playground/*
+ec/ec-core/src/test/java/com/yqg/core/playground/*
+ec/local.deploy.sh
