@@ -101,3 +101,8 @@ class DoubanspiderDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+    def process_request(self, request, spider):
+        proxy = spider.proxy
+        if proxy is not None:
+            request.meta['proxy'] = proxy

@@ -9,6 +9,7 @@ dump
 dump.rdb
 bestsign-sdk-logs
 MIYOU_LOG_DIR_IS_UNDEFINED
+__pycache__
 
 # Intellij
 **/.idea/
@@ -16,6 +17,7 @@ MIYOU_LOG_DIR_IS_UNDEFINED
 *.csv
 *.xml
 *.html
+*.pyc
 
 # Eclipse
 .settings
