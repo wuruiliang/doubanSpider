@@ -10,6 +10,7 @@ dump.rdb
 bestsign-sdk-logs
 MIYOU_LOG_DIR_IS_UNDEFINED
 __pycache__
+spiders/__pycache__
 
 # Intellij
 **/.idea/
