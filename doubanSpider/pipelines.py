@@ -12,5 +12,8 @@ class DoubanspiderPipeline:
     file_name = "output.html"
 
     def process_item(self, item, spider):
+        if spider.output_file_name is not None:
+            self.file_name = spider.output_file_name + ".html"
+
         open(self.file_name, 'a').write('<a href="'+item['url'] + '">' + item['url'] + '</a> ，' + item['title'] + '</br>\n')
         return item
