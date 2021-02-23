@@ -12,7 +12,7 @@ class DoubanspiderPipeline:
     file_name = "output.html"
 
     def process_item(self, item, spider):
-        open(self.file_name, 'a').write('<a href="'+item['url'] + '">' + item['url'] + '</a> ，' + item['title'] + '</br>\n')
+        open(self.file_name, 'a').write('<a href="'+item['url'] + '">' + item['title'] + '</a></br>\n')
         return item
 
     def open_spider(self, spider):
