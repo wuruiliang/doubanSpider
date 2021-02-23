@@ -24,4 +24,4 @@ class DoubanspiderPipeline:
         with open(self.file_name, 'r+') as f:
             content = f.read()
             f.seek(0, 0)
-            f.write("<html><b>共 " + str(spider.count) + " 条匹配的数据:</b></br>\n" + content + "</html>")
+            f.write("<html>\n<b>共 " + str(spider.count) + " 条匹配的数据:</b></br>\n" + content + "</html>")
