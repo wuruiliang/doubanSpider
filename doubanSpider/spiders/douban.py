@@ -25,7 +25,6 @@ class DoubanSpider(scrapy.Spider):
         if self.start_urls is None or self.max_page is None or self.search_str_list is None or not self.search_str_list:
             print("参数错误！！！")
             return None
-        items = []
         for each in response.xpath('//*/table[@class="olt"]/tr'):
             url = each.xpath('td[1]/a/@href').extract_first()
             title = each.xpath('td[1]/a/@title').extract_first()
@@ -36,7 +35,6 @@ class DoubanSpider(scrapy.Spider):
             item['url'] = url
             item['title'] = title
             item['time'] = time
-            items.append(item)
             self.count = self.count + 1
             yield item
         nexturl = response.xpath('//*/span[@class="next"]/a/@href').extract_first()
