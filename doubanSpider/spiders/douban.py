@@ -10,9 +10,9 @@ class DoubanSpider(scrapy.Spider):
     max_page = 5
     search_str_list = ['6号线', '十号线']
     proxy = None
-    output_file_name = 'output'
+    count = 0
 
-    def __init__(self, start_url=None, max_page=None, search_strs='', proxy=None, output_file_name=None, *args, **kwargs):
+    def __init__(self, start_url=None, max_page=None, search_strs='', proxy=None, *args, **kwargs):
         super(DoubanSpider, self).__init__(*args, **kwargs)
         if start_url is None:
             start_url = 'http://www.baidu.com'
@@ -20,7 +20,6 @@ class DoubanSpider(scrapy.Spider):
         self.max_page = max_page
         self.search_str_list = search_strs.split(",")
         self.proxy = proxy
-        self.output_file_name = output_file_name
 
     def parse(self, response):
         if self.start_urls is None or self.max_page is None or self.search_str_list is None or not self.search_str_list:
@@ -37,6 +36,7 @@ class DoubanSpider(scrapy.Spider):
             item['title'] = title
             item['time'] = time
             items.append(item)
+            self.count = self.count + 1
             yield item
         nexturl = response.xpath('//*/span[@class="next"]/a/@href').extract_first()
         cur_page = response.xpath('//*/span[@class="thispage"]/text()').extract_first()

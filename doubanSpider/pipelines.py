@@ -12,8 +12,17 @@ class DoubanspiderPipeline:
     file_name = "output.html"
 
     def process_item(self, item, spider):
-        if spider.output_file_name is not None:
-            self.file_name = spider.output_file_name + ".html"
-
         open(self.file_name, 'a').write('<a href="'+item['url'] + '">' + item['url'] + '</a> ，' + item['title'] + '</br>\n')
         return item
+
+    def open_spider(self, spider):
+        with open(self.file_name, 'a') as f:
+            f.seek(0)
+            f.truncate()
+            f.write('<html>')
+
+    def close_spider(self, spider):
+        with open(self.file_name, 'r+') as f:
+            content = f.read()
+            f.seek(0, 0)
+            f.write("<b>共 " + str(spider.count) + " 条匹配的数据:</b></br>\n" + content + "</html>")
