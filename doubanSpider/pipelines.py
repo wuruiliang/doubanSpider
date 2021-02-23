@@ -28,5 +28,5 @@ class DoubanspiderPipeline:
 
     def close_spider(self, spider):
         with open(self.file_name, 'a') as f:
-            f.write("</html>")
+            f.write("===== end =====\n</html>")
             f.close()
