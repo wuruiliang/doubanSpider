@@ -19,10 +19,9 @@ class DoubanspiderPipeline:
         with open(self.file_name, 'a') as f:
             f.seek(0)
             f.truncate()
-            f.write('<html>')
 
     def close_spider(self, spider):
         with open(self.file_name, 'r+') as f:
             content = f.read()
             f.seek(0, 0)
-            f.write("<b>共 " + str(spider.count) + " 条匹配的数据:</b></br>\n" + content + "</html>")
+            f.write("<html><b>共 " + str(spider.count) + " 条匹配的数据:</b></br>\n" + content + "</html>")
