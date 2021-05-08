@@ -4,6 +4,7 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+import ast
 
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
@@ -104,5 +105,8 @@ class DoubanspiderDownloaderMiddleware:
 
     def process_request(self, request, spider):
         proxy = spider.proxy
+        cookies = spider.cookies
+        if cookies is not None:
+            request.cookies = ast.literal_eval(cookies)
         if proxy is not None:
             request.meta['proxy'] = proxy

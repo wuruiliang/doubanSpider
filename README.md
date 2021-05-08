@@ -24,3 +24,9 @@
 
 
    3. 执行`docker run -v /xxxx/xxx/doubanSpider:/usr/src/app/spider -w /usr/src/app/spider scrapy scrapy crawl douban -a start_url=https://www.douban.com/group/xxxxx/discussion  -a search_strs='xxx,xx' -a max_page=50 -a proxy='xxx.xxx.xxx.xxx:xxxx'`命令即可启动查询程序，其中`/xxxx/xxx/doubanSpider`为项目所在目录，其余参数含义见上文，运行完毕后同样会在此目录下生成`output.htlm`文件，使用浏览器打开即可。 
+
+### 登陆校验
+豆瓣更新后未登陆用户不能查看小组较大页码的页面，爬取过程中会跳转到登陆页面。
+
+*解决方法*：在浏览器中使用自己的账号登陆，通过开发者工具找到Cookies，找到其中`dbcl2`的值，在爬虫启动参数中增加:
+```-a cookies='{"dbcl2":"237722292:Sgowyx8pryQ"}'```， cookies格式为json，也可尝试添加其他cookie，我试着加这个就可以了。。
