@@ -29,4 +29,4 @@
 豆瓣更新后未登陆用户不能查看小组较大页码的页面，爬取过程中会跳转到登陆页面。
 
 *解决方法*：在浏览器中使用自己的账号登陆，通过开发者工具找到Cookies，找到其中`dbcl2`的值，在爬虫启动参数中增加:
-```-a cookies='{"dbcl2":"237722292:Sgowyx8pryQ"}'```， cookies格式为json，也可尝试添加其他cookie，我试着加这个就可以了。。
+```-a cookies='{"dbcl2":"xxxxxxyour_cookie_valuexxxxx"}'```， cookies格式为json，也可尝试添加其他cookie，我试着加这个就可以了。。
